@@ -130,9 +130,9 @@ MIT License. See [LICENSE](LICENSE).
 - [x] Failure case studies (what-failed, hallucination, cache-tuning)
 - [x] Success patterns (what-worked)
 - [x] Detailed docs (wrapper, agent, telegram bot, migration)
-- [ ] Initial phase docs (01-05: setup, download, build, conversion, first-inference)
+- [~] Initial phase docs (01-02 done; 03-05: build, conversion, first-inference remaining)
 - [ ] Screenshots and diagrams
-- [ ] English summary for Reddit/HN
+- [x] English summary for Reddit/HN (REDDIT_POST.md)
 
 This is a living document. Updates as I continue using and learning.
 
