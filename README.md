@@ -126,9 +126,11 @@ MIT License. See [LICENSE](LICENSE).
 
 - [x] README + overview + honest evaluation
 - [x] Core code (agent, wrapper, bot)
-- [x] Performance benchmarks
-- [ ] Detailed phase-by-phase docs (in progress)
-- [ ] Failure case studies
+- [x] Performance benchmarks (tok/s, cache, hardware)
+- [x] Failure case studies (what-failed, hallucination, cache-tuning)
+- [x] Success patterns (what-worked)
+- [x] Detailed docs (wrapper, agent, telegram bot, migration)
+- [ ] Initial phase docs (01-05: setup, download, build, conversion, first-inference)
 - [ ] Screenshots and diagrams
 - [ ] English summary for Reddit/HN
 
