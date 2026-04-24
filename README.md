@@ -24,6 +24,15 @@
 | Language quality | Native Korean + English, tool calling functional |
 | Agent loop (2 iterations) | 10-15 minutes per query |
 
+## Demo
+
+Real conversation with the Telegram bot on 2026-04-24:
+
+![Telegram conversation with Flash-MoE 397B bot](images/01-telegram-conversation.png)
+
+Shows `/status` health check, Korean greeting, factual Q&A,
+and weather query (web search triggered, 10 min response time).
+
 ## What This Repo Contains
 
 - **[Full journey](docs/00-overview.md)** — Setup to Telegram bot, every phase
@@ -131,7 +140,7 @@ MIT License. See [LICENSE](LICENSE).
 - [x] Success patterns (what-worked)
 - [x] Detailed docs (wrapper, agent, telegram bot, migration)
 - [x] Initial phase docs (all phases 01-10 complete)
-- [ ] Screenshots and diagrams
+- [x] Screenshots and diagrams (Telegram conversation)
 - [x] English summary for Reddit/HN (REDDIT_POST.md)
 
 This is a living document. Updates as I continue using and learning.
