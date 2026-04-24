@@ -122,6 +122,19 @@ GitHub: https://github.com/hhleeo-creator/flash-moe-397b-mac-mini-journey
 MIT License. See [LICENSE](LICENSE).
 
 ---
+## Repository Status
+
+- [x] README + overview + honest evaluation
+- [x] Core code (agent, wrapper, bot)
+- [x] Performance benchmarks
+- [ ] Detailed phase-by-phase docs (in progress)
+- [ ] Failure case studies
+- [ ] Screenshots and diagrams
+- [ ] English summary for Reddit/HN
+
+This is a living document. Updates as I continue using and learning.
+
+**Last meaningful update**: 2026-04-24 — Initial public release
 
 **Language**: This repo mixes English and Korean documentation. Core findings are in English; personal notes and narrative may be in Korean.
 
