@@ -68,7 +68,7 @@ Both showed high cache hit with pread errors (see `cache-tuning-results.md`). No
 
 This is where the hardware comparison inverts.
 
-### External SSD detach events (48 hours)
+### External SSD detach events (48 hours, original enclosure)
 
 | Period | Detach count | Notes |
 |---|---|---|
@@ -79,6 +79,16 @@ Root causes:
 - Acasis TB5 enclosure has 5-min idle timeout (not configurable)
 - macOS Sandbox TCC blocks touch/write from unsigned scripts
 - Keepalive ran but denied by system → enclosure thought idle → disconnect
+
+### Later enclosure follow-up
+
+After this initial test, the same external-model workflow was moved to a **BeeLink Mate Mini EX B** enclosure. In later daily use, this enclosure has been stable.
+
+So the hardware conclusion is narrower than the first write-up implied:
+- External NVMe can work for Flash-MoE streaming on macOS.
+- The enclosure matters as much as the SSD.
+- The Acasis TB5 unit used here was not suitable for always-on service in this setup.
+- BeeLink Mate Mini EX B has been suitable so far.
 
 ### Internal NVMe
 
@@ -97,7 +107,7 @@ Factoring in stability:
 | External (unreliable) | 5.41 | ~60% (detaches) | ~3.2 |
 | Internal (stable) | 3.17 | 99%+ | 3.1 |
 
-**Basically equivalent** when stability considered. External only wins if you fight the keepalive battle successfully (we didn't).
+With the original Acasis enclosure, the stability penalty erased the raw speed advantage. With the later BeeLink Mate Mini EX B enclosure, external storage becomes a more practical option because the raw speed advantage is no longer offset by frequent detach events.
 
 ## Cost analysis
 
@@ -120,18 +130,18 @@ External setup's value in our case:
 - ✓ Portable (can move to another machine)
 - ✓ 2TB usable for other storage needs
 
-$430 for backup + expansion storage is reasonable. As primary MoE inference storage: not worth the instability.
+$430 for backup + expansion storage is reasonable. With the original Acasis enclosure, it was not worth the instability as primary MoE inference storage. With a stable enclosure such as BeeLink Mate Mini EX B, external storage is viable again.
 
 ## Recommendations
 
 ### For MoE inference on Mac
 
-**Use internal SSD.** The speed penalty (~40% on MoE random reads) is real but stability is more valuable.
+**Use the most stable fast storage you can actually keep mounted.** Internal SSD is the simplest reliable baseline. A well-behaved external enclosure can be better if it remains mounted under long idle periods and always-on inference.
 
 If internal is too small:
-- External as backup only (not hot storage)
+- External as hot storage is possible, but test the exact enclosure first
 - Or Mac Studio/Mac Pro with larger internal options
-- Or wait for better TB5 enclosures with no idle timeout
+- Or use an enclosure with no aggressive idle timeout / better always-on behavior
 
 ### For general workloads
 
@@ -149,7 +159,7 @@ They're unreliable for:
 
 ### For reproducing this project
 
-If you have M4 Pro+ with 500GB+ internal SSD, use internal. Simpler, stable, 3-5 tok/s is sufficient.
+If you have M4 Pro+ with 500GB+ internal SSD, internal is still the simplest baseline. If you need or prefer external storage, the BeeLink Mate Mini EX B follow-up shows that a stable enclosure can make external MoE streaming practical.
 
 If you have smaller internal (256GB), external becomes necessary. Budget for:
 - Best available TB5 enclosure (read reviews for idle timeout)

@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-- **Hardware**: Mac Mini M4 Pro, 64GB RAM, 462GB internal SSD + WD SN850X 2TB external via Acasis TB5
+- **Hardware**: Mac Mini M4 Pro, 64GB RAM, 462GB internal SSD + WD SN850X 2TB external. Initial tests used an Acasis TB5 enclosure; later external operation became stable after moving the same SSD to a BeeLink Mate Mini EX B enclosure.
 - **Model**: [mlx-community/Qwen3.5-397B-A17B-4bit](https://huggingface.co/mlx-community/Qwen3.5-397B-A17B-4bit) (~208GB)
 - **Framework**: [Flash-MoE](https://github.com/danveloper/flash-moe) by Dan Woods (pure C/Metal, expert streaming)
 - **Result**: 3-5 tok/s generation, fully functional agent with web search + Telegram bot
@@ -64,7 +64,7 @@ If you're considering this setup, read **[honest-evaluation.md](lessons/honest-e
 
 1. **Default cache_entries (2500) is optimal** — Increasing to 20000 causes pread errors and blocks generation
 2. **Internal SSD stable but ~35% slower** than external TB5 NVMe for MoE random reads
-3. **External SSD detach is real** — Acasis TB5 enclosure idle timeout + macOS Sandbox TCC
+3. **External SSD stability depends heavily on the enclosure** — Acasis TB5 detached under this workload, while BeeLink Mate Mini EX B has been stable in later daily use
 4. **Hermes Agent incompatible** — Its 13,859-token default system prompt means 50+ minutes per turn
 5. **Custom 140-line agent works better** than full frameworks for local LLMs
 
@@ -150,3 +150,6 @@ This is a living document. Updates as I continue using and learning.
 **Language**: This repo mixes English and Korean documentation. Core findings are in English; personal notes and narrative may be in Korean.
 
 **한국어**: 이 저장소는 영어와 한국어가 혼재합니다. 핵심 데이터는 영어, 여정 기록은 한국어입니다.
+
+## Update (2026-07-06)
+- **External enclosure follow-up**: The earlier warning about external SSD detach was based on the WD SN850X running in an Acasis TB5 enclosure. In later use, the same external-model workflow has been stable after switching to a **BeeLink Mate Mini EX B** enclosure. The updated lesson is more specific: external storage is viable for Flash-MoE streaming on macOS, but the enclosure's power-management behavior matters a lot. Do not generalize one unstable enclosure to every external SSD setup; test the exact enclosure for long idle periods and always-on inference.

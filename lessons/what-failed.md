@@ -148,10 +148,10 @@ Keepalive scripts that worked fine on Intel Macs/older macOS break on Apple Sili
 
 ### Lesson
 
-**External SSD for local LLM inference is unreliable on macOS.**
+**External SSD for local LLM inference is enclosure-sensitive on macOS.**
 
 If you need external storage:
-- Buy enclosure with no idle timeout (harder to find for TB5)
+- Buy or use an enclosure with no aggressive idle timeout
 - Or test 48+ hours before committing
 - Or grant Full Disk Access to Terminal/script binary
 - Or migrate data to internal SSD and use external as backup only
@@ -159,6 +159,16 @@ If you need external storage:
 $250 enclosure + $180 SSD = $430 for something best used as backup now. Not wasted (does back up model), but not the role intended.
 
 Internal SSD is 35% slower but 100% stable. For continuous service, stability > speed.
+
+### 2026-07 follow-up: BeeLink Mate Mini EX B
+
+This failure was specific to the original Acasis TB5 enclosure used in Phase 7. Later, the external workflow became stable after moving the WD SN850X to a **BeeLink Mate Mini EX B** enclosure.
+
+The corrected lesson:
+- Do not treat "external SSD" as one category.
+- The exact enclosure controller and power-management behavior matter.
+- For Flash-MoE expert streaming, validate the actual enclosure with long idle periods, restart cycles, and always-on serving.
+- In this setup, Acasis TB5 was unstable; BeeLink Mate Mini EX B has been stable in later use.
 
 ---
 
