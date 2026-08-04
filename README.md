@@ -4,6 +4,12 @@
 >
 > Mac Mini M4 Pro (64GB)에서 397B MoE 모델 로컬 실행 여정
 
+## Sequel: Kimi K3 2.8T on the same Mac
+
+On 2026-08-04, the same Mac mini completed a second, separate large-model journey: **[Kimi K3 2.8T on a 64GB Mac mini M4 Pro](https://github.com/hhleeo-creator/kimi-k3-deltafin-mac-mini-journey)**.
+
+That experiment uses Deltafin—not Flash-MoE—to stream a full local Kimi K3 expert store from the external NVMe drive through Metal/MPS. LightWeb reported 0.059–0.077 tok/s after the first non-empty decoded text, including a 1,967-token run that completed in 9h 20m. The new repository keeps the runtimes and measurements separate while continuing the same hardware story.
+
 ## TL;DR
 
 - **Hardware**: Mac Mini M4 Pro, 64GB RAM, 462GB internal SSD + WD SN850X 2TB external. Initial tests used an Acasis TB5 enclosure; later external operation became stable after moving the same SSD to a BeeLink Mate Mini EX B enclosure.
@@ -145,7 +151,7 @@ MIT License. See [LICENSE](LICENSE).
 
 This is a living document. Updates as I continue using and learning.
 
-**Last meaningful update**: 2026-04-24 — Initial public release
+**Last meaningful update**: 2026-08-04 — Added the Kimi K3/Deltafin sequel
 
 **Language**: This repo mixes English and Korean documentation. Core findings are in English; personal notes and narrative may be in Korean.
 
@@ -153,3 +159,6 @@ This is a living document. Updates as I continue using and learning.
 
 ## Update (2026-07-06)
 - **External enclosure follow-up**: The earlier warning about external SSD detach was based on the WD SN850X running in an Acasis TB5 enclosure. In later use, the same external-model workflow has been stable after switching to a **BeeLink Mate Mini EX B** enclosure. The updated lesson is more specific: external storage is viable for Flash-MoE streaming on macOS, but the enclosure's power-management behavior matters a lot. Do not generalize one unstable enclosure to every external SSD setup; test the exact enclosure for long idle periods and always-on inference.
+
+## Update (2026-08-04)
+- **Heavier-workload follow-up**: The later Kimi K3/Deltafin experiment placed a much longer, more storage-intensive workload on the same external path and saw two volume disappearances. After changing enclosure placement, cooling, and the optional PD power path together, the next 9h 20m request completed. The July observation remains valid for the earlier Flash-MoE workload, but it was not proof of stability under every sustained-I/O pattern. See the [Kimi K3 failure record](https://github.com/hhleeo-creator/kimi-k3-deltafin-mac-mini-journey/blob/main/lessons/what-failed.md).
